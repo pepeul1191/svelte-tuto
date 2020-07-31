@@ -1,6 +1,14 @@
 <script>
 	export let name;
 	let beltColor = 'black';
+	let firstName = 'Pepe';
+	let lastName = 'Valdivia';
+
+	$: fullName = `${firstName} ${lastName}`;
+	$: {
+		console.log(beltColor);
+		console.log(fullName);
+	};
 
 	const handleClick = () => {
 		beltColor  = 'orange';
@@ -13,10 +21,13 @@
 
 <main>
 	<h1>Hello {name}!</h1>
-	<h2 style="color: {beltColor}">{beltColor} belt</h2>
+	<h2 style="color: {beltColor}">{fullName} - {beltColor} belt</h2>
 	<button on:click={handleClick}>update belt colour</button>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-	<input type="text" on:input={handleInput} bind:value={beltColor }>
+	<p>Visit the <a href="https://svelte.dev /tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<input type="text" bind:value={firstName}>
+	<input type="text" bind:value={lastName}>
+	<input type="text" bind:value={beltColor}>
+	<input type="text" on:input={handleInput} bind:value={beltColor}>
 </main>
 
 <style>
