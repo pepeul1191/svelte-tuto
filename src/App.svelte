@@ -5,13 +5,18 @@
 	const handleClick = () => {
 		beltColor  = 'orange';
 	};
+
+	const handleInput = (e) => {
+		beltColor = e.target.value;
+	};
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<h2>{beltColor}</h2>
+	<h2 style="color: {beltColor}">{beltColor} belt</h2>
 	<button on:click={handleClick}>update belt colour</button>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<input type="text" on:input={handleInput} bind:value={beltColor }>
 </main>
 
 <style>
