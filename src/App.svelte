@@ -22,7 +22,13 @@
 		{name: 'yoshi', beltColor: 'black', age: 25, id: 1},
 		{name: 'mario', beltColor: 'red', age: 45, id: 2},
 		{name: 'luigi', beltColor: 'blue', age: 35, id: 3},
-	]; 
+	];
+
+	const handleClickPerson = (e, id) => {
+		// console.log(id);
+		console.log(e);
+		people = people.filter((person) => person.id != id);
+	};
 </script>
 
 <main>
@@ -35,10 +41,11 @@
 	<input type="text" bind:value={beltColor}>
 	<input type="text" on:input={handleInput} bind:value={beltColor}>
 	<hr>
-	{#each people as person}
+	{#each people as person (person.id)}
 		<div>
 			<h4>{person.name}</h4>
 			<p>{person.age} years old, {person.beltColor} belt</p>
+			<button on:click={(e) => handleClickPerson(e, person.id)}>borrarsh</button>
 		</div>
 		{:else}
 		<p>Lista vacía XD</p>
