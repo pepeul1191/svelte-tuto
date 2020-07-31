@@ -17,6 +17,12 @@
 	const handleInput = (e) => {
 		beltColor = e.target.value;
 	};
+
+	let people = [
+		{name: 'yoshi', beltColor: 'black', age: 25, id: 1},
+		{name: 'mario', beltColor: 'red', age: 45, id: 2},
+		{name: 'luigi', beltColor: 'blue', age: 35, id: 3},
+	]; 
 </script>
 
 <main>
@@ -28,6 +34,15 @@
 	<input type="text" bind:value={lastName}>
 	<input type="text" bind:value={beltColor}>
 	<input type="text" on:input={handleInput} bind:value={beltColor}>
+	<hr>
+	{#each people as person}
+		<div>
+			<h4>{person.name}</h4>
+			<p>{person.age} years old, {person.beltColor} belt</p>
+		</div>
+		{:else}
+		<p>Lista vacía XD</p>
+	{/each}
 </main>
 
 <style>
