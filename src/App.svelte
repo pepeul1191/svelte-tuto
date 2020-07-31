@@ -19,7 +19,7 @@
 	};
 
 	let people = [
-		{name: 'yoshi', beltColor: 'black', age: 25, id: 1},
+		{name: 'yoshi', beltColor: 'black', age: 5, id: 1},
 		{name: 'mario', beltColor: 'red', age: 45, id: 2},
 		{name: 'luigi', beltColor: 'blue', age: 35, id: 3},
 	];
@@ -45,6 +45,11 @@
 		<div>
 			<h4>{person.name}</h4>
 			<p>{person.age} years old, {person.beltColor} belt</p>
+			{#if person.age < 18}
+				<p>es menor de edad</p>
+			{:else if person.age >= 18}
+				<p>es mayor de edad</p>
+			{/if}
 			<button on:click={(e) => handleClickPerson(e, person.id)}>borrarsh</button>
 		</div>
 		{:else}
