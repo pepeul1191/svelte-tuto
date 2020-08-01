@@ -1,4 +1,6 @@
 <script>
+	import Modal from './Modal.svelte';
+
 	export let name;
 	let beltColor = 'black';
 	let firstName = 'Pepe';
@@ -31,6 +33,7 @@
 	};
 </script>
 
+<Modal />
 <main>
 	<h1>Hello {name}!</h1>
 	<h2 style="color: {beltColor}">{fullName} - {beltColor} belt</h2>
