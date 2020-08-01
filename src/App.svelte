@@ -33,7 +33,7 @@
 	};
 </script>
 
-<Modal />
+<Modal message="hey, i am a prop value" isPromo={false}/>
 <main>
 	<h1>Hello {name}!</h1>
 	<h2 style="color: {beltColor}">{fullName} - {beltColor} belt</h2>
