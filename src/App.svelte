@@ -49,9 +49,9 @@
 			<h4>{person.name}</h4>
 			<p>{person.age} years old, {person.beltColor} belt</p>
 			{#if person.age < 18}
-				<p>es menor de edad</p>
+				<p class="edad">es menor de edad</p>
 			{:else if person.age >= 18}
-				<p>es mayor de edad</p>
+				<p class="edad">es mayor de edad</p>
 			{/if}
 			<button on:click={(e) => handleClickPerson(e, person.id)}>borrarsh</button>
 		</div>
@@ -79,5 +79,9 @@
 		main {
 			max-width: none;
 		}
+	}
+
+	.edad{
+		color: blueviolet;
 	}
 </style>
