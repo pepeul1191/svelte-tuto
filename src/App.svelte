@@ -5,11 +5,16 @@
 	let beltColor = 'black';
 	let firstName = 'Pepe';
 	let lastName = 'Valdivia';
+	let show = false;
 
 	$: fullName = `${firstName} ${lastName}`;
 	$: {
 		console.log(beltColor);
 		console.log(fullName);
+	};
+
+	const toggleModal = () => {
+		show = !show;
 	};
 
 	const handleClick = () => {
@@ -33,7 +38,7 @@
 	};
 </script>
 
-<Modal message="hey, i am a prop value" isPromo={false}/>
+<Modal 	message="hey, i am a prop value" 	isPromo={false} {show} on:click={toggleModal}/>
 <main>
 	<h1>Hello {name}!</h1>
 	<h2 style="color: {beltColor}">{fullName} - {beltColor} belt</h2>
@@ -58,6 +63,7 @@
 		{:else}
 		<p>Lista vacía XD</p>
 	{/each}
+	<button on:click|once={toggleModal}>Show Modal</button>
 </main>
 
 <style>
