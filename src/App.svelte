@@ -1,5 +1,6 @@
 <script>
 	import Modal from './Modal.svelte';
+	import AddPersonForm from './AddPersonForm.svelte';
 
 	export let name;
 	let beltColor = 'black';
@@ -36,16 +37,19 @@
 		console.log(e);
 		people = people.filter((person) => person.id != id);
 	};
+
+	const addPerson = (e) => {
+		console.log('App.svelte', e.detail);
+		const person = e.detail;
+		people = [person, ...people];
+		show = false;
+	};
 </script>
 
 <Modal 	message="hey, i am a prop value" 	isPromo={false} {show} on:click={toggleModal}>
 	<h3>Add a new person</h3>
 	<div slot="form-slot">
-		<form>
-			<input type="text" placeholder="name">
-			<input type="text" placeholder="belt colour">
-			<button>Add Person</button>
-		</form>
+		<AddPersonForm on:addPerson={addPerson}/>
 	</div>
 </Modal>
 <main>
@@ -72,7 +76,7 @@
 		{:else}
 		<p>Lista vacía XD</p>
 	{/each}
-	<button on:click|once={toggleModal}>Show Modal</button>
+	<button on:click={toggleModal}>Show Modal</button>
 </main>
 
 <style>
