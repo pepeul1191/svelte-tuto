@@ -8,6 +8,7 @@
   <div class="backdrop" class:promo={isPromo} on:click|self>
     <div class="modal">
       <p>Sign up for offers! {message}</p>
+      <slot name="form-slot"></slot>
     </div>
   </div>
 {/if}

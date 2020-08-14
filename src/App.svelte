@@ -38,7 +38,16 @@
 	};
 </script>
 
-<Modal 	message="hey, i am a prop value" 	isPromo={false} {show} on:click={toggleModal}/>
+<Modal 	message="hey, i am a prop value" 	isPromo={false} {show} on:click={toggleModal}>
+	<h3>Add a new person</h3>
+	<div slot="form-slot">
+		<form>
+			<input type="text" placeholder="name">
+			<input type="text" placeholder="belt colour">
+			<button>Add Person</button>
+		</form>
+	</div>
+</Modal>
 <main>
 	<h1>Hello {name}!</h1>
 	<h2 style="color: {beltColor}">{fullName} - {beltColor} belt</h2>
